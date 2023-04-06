@@ -1,0 +1,73 @@
+        import random
+class Array:
+    def __init__(self,size):
+        self.__size=size
+        self.__count=0
+        self.__list=[' ' for i in range(size)]
+    def size(self):
+        return self.__count
+    def show_list(self):
+        print("[",end=" ")
+        for i in range(self.__count):
+            print(self.__list[i], end=' ')
+        print(self.__list[self.__count],']')
+    def push_begin(self,n):
+        if self.__count==self.__size:
+            raise IndexError('List index out of range')
+        else:
+            self.__list.insert(0,n)
+            self.__count+=1
+    def push_end(self,n):
+        if self.__count==self.__size:
+            raise IndexError('List index out of range')
+        else:
+            self.__list[self.__count] = n
+            self.__count += 1
+
+    def index_push(self, n, index):
+        if self.__count == self.size:
+            raise IndexError('List index out of range')
+        else:
+            for i in range(len(self.__list)):
+                if i==index and self.__list[i]=="":
+                    self.__list[index]=n
+                    self.__count+=1
+                    break
+                if i==index and self.__list[i]!="":
+                    raise Exception('Position occupied')
+    def pop_start(self):
+        if self.__count == 0: raise Exception('List empty')
+        for i in range(len(self.__list)-1):
+            self.__list[i]=self.__list[i+1]
+        self.__count-=1
+
+    def pop_end(self):
+        if self.__count==0:
+            raise IndexError('List empty')
+        else:
+            self.__count-=1
+
+    def pop_index(self,index):
+        if self.__count == 0: raise IndexError('List empty')
+        if index<self.size:
+            for i in range(index, self.__size - 1):
+                self.__list[i] = self.__list[i+1]
+            self.__count-=1
+        else:
+            raise Exception('Enter correct index')
+if __name__=='__main__':
+    list=Array(7)
+    try:
+        for i in range(3):
+            list.push_begin(random.randint(1,9))
+        list.show_list()
+        print(list.size())
+        list.push_begin(5)
+        list.show_list()
+        list.push_end(3)
+        list.show_list()
+        list.pop_start()
+        list.pop_end()
+        list.show_list()
+    except Exception as er:
+        print(er)
