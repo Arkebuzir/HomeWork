@@ -1,0 +1,175 @@
+'''class Circle:                           #Первое задание
+    def __init__(self,radius):
+        self.radius=radius
+    def circ_len(self):
+        return int(self.radius*3.14*2)
+    def __eq__(self, other):
+        if self.radius==other.radius:
+            print('Радиусы равны')
+        else:
+            print('Радиусы не равны')
+    def __gt__(self, other):
+        if self.circ_len()>other.circ_len():
+            print('Первая коружность больше')
+        else:
+            print('Error')
+    def __lt__(self, other):
+        if self.circ_len()<other.circ_len():
+            print('Первая окружность меньше')
+        else:
+            print('Error')
+    def __le__(self, other):
+        if self.circ_len()<=other.circ_len():
+            print('Первая окружность меньше или равна второй')
+        else:
+            print('Error')
+    def __ge__(self, other):
+        if self.circ_len()<=other.circ_len():
+            print('Первая окружность больше или равна второй')
+        else:
+            print('Error')
+    def __add__(self, other):
+        self.radius=self.radius+other
+        return self.radius
+    def __sub__(self, other):
+        self.radius=self.radius-other
+        return self.radius-other
+    def __iadd__(self, other):
+        self.radius+=other
+    def __isub__(self, other):
+        self.radius-=other
+if __name__=="__main__":
+    circle1=Circle(7)
+    circle2=Circle(5)
+    print(circle1.circ_len())
+    circle1.__eq__(circle2)
+    print(circle1.__ge__(circle2))
+    circle1+3
+    print(circle1.circ_len())
+    circle1-7
+    print(circle1.circ_len())
+    circle1.__isub__(2)
+    print(circle1.circ_len())
+    circle1.__iadd__(2)
+    print(circle1.circ_len())
+
+
+
+class Complex():                #Второе задание
+    def __init__(self, real, imaginary):
+        self.real = real
+        self.imaginary = imaginary
+    def __add__(self, other):
+        return Complex(self.real + other.real, self.imaginary + other.imaginary)
+    def __sub__(self, other):
+        return Complex(self.real - other.real, self.imaginary - other.imaginary)
+    def __mul__(self, other):
+        return Complex(self.real * other.real, self.imaginary * other.imaginary)
+    def __truediv__(self, other):
+        return Complex(self.real / other.real, self.imaginary / other.imaginary)
+    def __str__(self):
+        if self.imaginary == 0:
+            result = "%.2f+0.00i" % (self.real)
+        elif self.real == 0:
+            if self.imaginary >= 0:
+                result = "0.00+%.2fi" % (self.imaginary)
+            else:
+                result = "0.00-%.2fi" % (abs(self.imaginary))
+        elif self.imaginary > 0:
+            result = "%.2f+%.2fi" % (self.real, self.imaginary)
+        else:
+            result = "%.2f-%.2fi" % (self.real, abs(self.imaginary))
+        return result
+
+if __name__ == '__main__':
+    x = Complex(5,7)
+    y = Complex(2,5)
+    print( x+y, x-y, x*y, x/y)
+
+class Airplane:             #Третье задание
+    def __init__(self,capacity):
+        self.capacity=capacity
+    def show_capacity(self):
+        print(f'Вместимость самолета {self.capacity} человек')
+    def __eq__(self, other):
+        if self.capacity==other.capacity:
+            print('Самолеты идентичны')
+        else:
+            print('Самолеты разные')
+    def __add__(self, other):
+        self.capacity=self.capacity+other
+    def __sub__(self, other):
+        self.capacity=self.capacity-other
+    def __iadd__(self, other):
+        self.capacity+=other
+    def __isub__(self, other):
+        self.capacity-=other
+    def __gt__(self, other):
+        if self.capacity>other.capacity:
+            print('Первый самолет больше второго')
+        else:
+            print('Error')
+    def __lt__(self, other):
+        if self.capacity<other.capacity:
+            print('Первый самолет меньше второго')
+        else:
+            print('Error')
+    def __le__(self, other):
+        if self.capacity <=other.capacity:
+            print('Первый самолет идентичен или меньше второго')
+        else:
+            print('Error')
+    def __ge__(self, other):
+        if self.capacity <=other.capacity:
+            print('Первый самолет идентичен или больше второго')
+        else:
+            print('Error')
+if __name__ == '__main__':
+    air1=Airplane(100)
+    air2=Airplane(10)
+    air1.show_capacity()
+    air2.show_capacity()
+    air1 +10
+    air1.show_capacity()
+    air1.__eq__(air2)
+    air1.__lt__(air2)'''
+
+class Flat:              #Четвертое задание
+    def __init__(self,area,price):
+        self.area=area
+        self.price=price
+
+    def __eq__(self, other):
+        if self.area == other.area:
+            print('Площадь квартир равна')
+        else:
+            print('Площадь квартир разная')
+    def __ne__(self, other):
+        if self.area!=other.area:
+            print('Площадь квартир не равна')
+        else:
+            print('Площадь квартир равна')
+    def __gt__(self, other):
+        if self.price>other.price:
+            print('Цена первой квартиры больше')
+        else:
+            print('Error')
+    def __lt__(self, other):
+        if self.price>other.price:
+            print('Цена первой квартиры меньше')
+        else:
+            print('Error')
+    def __le__(self, other):
+        if self.price>other.price:
+            print('Цена первой квартиры меньше или равна цене второй квартиры')
+        else:
+            print('Error')
+    def __ge__(self, other):
+        if self.price>other.price:
+            print('Цена первой квартиры больше или равна цене второй квартиры')
+        else:
+            print('Error')
+if __name__=='__main__':
+    app1=Flat(100,5000)
+    app2=Flat(50,2500)
+    app1.__eq__(app2)
