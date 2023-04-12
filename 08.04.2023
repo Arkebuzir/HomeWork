@@ -1,0 +1,77 @@
+class Device:                           #Первое задание
+    def __init__(self,color,type):
+        self.color=color
+        self.type=type
+    def show_info(self):
+        print(f'Цвет аппарата {self.color}, тип {self.type}')
+class CoffeeMachine(Device):
+    def __init__(self,color,type):
+        super().__init__(color,type)
+    def make_coffee(self):
+        print('coffee for you')
+class Blender(Device):
+    def __init__(self,color,type):
+        super().__init__(color,type)
+    def make_mash(self):
+        print('mashed potatoes are ready')
+class MeatGrinder(Device):
+    def __init__(self,color,type):
+        super().__init__(color,type)
+    def make_minced_meat(self):
+        print('minced meat is ready')
+if __name__=='__main__':
+    cm=CoffeeMachine('green','electric')
+    cm.show_info()
+    cm.make_coffee()
+    bm=Blender('yellow','electric')
+    bm.show_info()
+    bm.make_mash()
+    mgm=MeatGrinder('orange','electric')
+    mgm.show_info()
+    mgm.make_minced_meat()
+
+class Ship:                                                #Второе задание
+    def __init__(self,type,engine_type,classification):
+        self.type=type
+        self.engine_type=engine_type
+        self.classification=classification
+    def show_info(self):
+        print(f'Тип корабля: {self.type}, Тип двигателя: {self.engine_type}, Класс корабля: {self.classification}')
+class Frigate(Ship):
+    def __init__(self,type,engine_type,classification):
+        super().__init__(type,engine_type,classification)
+    def protect_ships(self):
+        print('the ships are protected')
+class Destroyer(Ship):
+    def __init__(self,type,engine_type,classification):
+        super().__init__(type,engine_type,classification)
+    def make_air_defense(self):
+        print('the area is protected by air defense')
+class Cruiser(Ship):
+    def __init__(self,type,engine_type,classification):
+        super().__init__(type,engine_type,classification)
+    def make_a_long_hike(self):
+        print('a ship on a long voyage')
+if __name__ == '__main__':
+    fr=Frigate('sea','diesel-electric','military')
+    fr.show_info()
+    fr.protect_ships()
+    ds=Destroyer('sea','diesel-electric','military')
+    ds.show_info()
+    ds.make_air_defense()
+    cr=Cruiser('sea','atomic','military')
+    cr.show_info()
+    cr.make_a_long_hike()
+
+class Money:                                #Третье задание
+    def __init__(self,ruble,kopeck):
+        self.ruble=ruble
+        self.kopeck=kopeck
+class Ruble(Money):
+    def __init__(self,ruble,kopeck):
+        super().__init__(ruble,kopeck)
+    def show_money(self):
+        return self.ruble+self.kopeck/100
+if __name__=='__main__':
+    mon=Ruble(5,70)
+    print(mon.show_money())
