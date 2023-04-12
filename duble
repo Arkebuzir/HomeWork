@@ -1,0 +1,75 @@
+'''def hashMode(show):
+    def wrapper(self):
+        print('hash', self.__hash__())
+        show(self)
+    return wrapper
+class Student:
+    def __init__(self, name, group):
+        self.name = name
+        self.group = group
+    @hashMode
+    def show(self):
+        print(self.name, self.group)
+if __name__ == '__main__':
+    st1 = Student('Igor', '3A')
+    st1.show()
+import math
+from abc import ABC,abstractmethod
+class Figure(ABC):
+    @abstractmethod
+    def getS(self):
+        pass
+    @abstractmethod
+    def draw(self):
+        pass
+class Circle(Figure):
+    def __init__(self,R):
+        self.__radius=R
+    def getS(self):
+        return math.pi*self.__radius**2
+    def draw(self):
+        print('circle')
+class Rectangle(Figure):
+    def __init__(self,w,h):
+        self.__width=w
+        self.__height=h
+    def getS(self):
+        return self.__width*self.__height
+    def draw(self):
+        print('rectangle')
+if __name__=='__main__':
+    fig1=Circle(3)
+    fig2=Rectangle(2,3)
+    fig1.draw()
+    fig2.draw()
+    print(fig2.getS())
+    ''''''fig3=Figure()''''''# Не дает вызвать абстрактный класс
+'''
+from abc import ABC, abstractmethod
+class Vegetables(ABC):
+    @abstractmethod
+    def cook(self,weight):
+        pass
+
+
+    @staticmethod
+    def wash():
+        print('vegetables is washed')
+class Cucumber(Vegetables):
+
+
+    def cook(self,time,weight):
+        self.time=time
+        self.weight=weight
+        return 3
+class Tomato(Vegetables):
+
+
+    def cook(self,time,weight):
+        self.time=time
+        self.weight=weight
+        return 5
+if __name__=='__main__':
+    vg1=Cucumber()
+    vg2=Tomato()
+    vg1.wash()
