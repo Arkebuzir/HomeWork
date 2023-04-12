@@ -172,4 +172,5 @@ class Flat:              #Четвертое задание
 if __name__=='__main__':
     app1=Flat(100,5000)
     app2=Flat(50,2500)
-    app1.__eq__(app2)
+    app1==app2
+    app1>app2
