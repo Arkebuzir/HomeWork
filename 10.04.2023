@@ -160,12 +160,12 @@ class Flat:              #Четвертое задание
         else:
             print('Error')
     def __le__(self, other):
-        if self.price>other.price:
+        if self.price<=other.price:
             print('Цена первой квартиры меньше или равна цене второй квартиры')
         else:
             print('Error')
     def __ge__(self, other):
-        if self.price>other.price:
+        if self.price>=other.price:
             print('Цена первой квартиры больше или равна цене второй квартиры')
         else:
             print('Error')
