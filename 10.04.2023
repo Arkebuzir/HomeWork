@@ -155,7 +155,7 @@ class Flat:              #Четвертое задание
         else:
             print('Error')
     def __lt__(self, other):
-        if self.price>other.price:
+        if self.price<other.price:
             print('Цена первой квартиры меньше')
         else:
             print('Error')
